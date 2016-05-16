@@ -39,3 +39,5 @@ _dock_containers_autocomplete() {
 }
 complete -F _dock_containers_autocomplete dockb dockip
 
+
+alias dm='docker-machine'
