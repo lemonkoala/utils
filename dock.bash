@@ -39,5 +39,9 @@ _dock_containers_autocomplete() {
 }
 complete -F _dock_containers_autocomplete dockb dockip
 
+dockweb() {
+  docker-compose run --rm web "$@"
+}
+
 
 alias dm='docker-machine'
