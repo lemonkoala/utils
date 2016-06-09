@@ -1,4 +1,4 @@
-export PS1="\e[35m\u@\h\e[m \e[0;33m\w\e[0m \$(parse_git_branch) \n\[\e[0;33m\]-->\[\e[0m\] "
+export PS1="\e[35m\u@\h\e[m \e[33m\w\e[0m \$(parse_git_branch) \n\[\e[33m\]-->\[\e[m\] "
 export PS2="->"
 
 export CLICOLOR=1
