@@ -7,8 +7,26 @@ dockb() {
 }
 
 dockp() {
-  docker ps -a --format "table {{.Names}}\t{{.Image}}\t{{.Ports}}\t{{.Status}}" \
-    | awk 'NR == 1; NR > 1 { print $0 | "sort"}'
+  docker ps -a --format "table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}" \
+    | awk 'NR == 1; NR > 1 { print $0 | "sort" }' \
+    | awk '
+      NR == 1 {
+        PORTSPOS = index($0, "PORTS");
+        PORTS = "PORTS";
+        PORTSPADDING = "\n";
+        for(n = 1; n < PORTSPOS; n++)
+          PORTSPADDING = PORTSPADDING " ";
+      }
+
+      NR > 1 {
+        PORTS = substr($0, PORTSPOS);
+        gsub(/, /, PORTSPADDING, PORTS);
+      }
+
+      {
+        printf "%s%s\n", substr($0, 0, PORTSPOS - 1), PORTS;
+      }
+      '
 }
 
 docki() {
