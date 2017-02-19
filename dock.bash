@@ -8,6 +8,7 @@ dockb() {
 
 dockp() {
   docker ps -a --format "table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}" \
+    | awk -v search=$1 'NR == 1 || $0 ~ search' \
     | awk 'NR == 1; NR > 1 { print $0 | "sort" }' \
     | awk '
       NR == 1 {
@@ -32,6 +33,7 @@ dockp() {
 docki() {
   docker images \
     --format "table {{.Repository}}\t{{.Tag}}\t{{.CreatedSince}}\t{{.Size}}" \
+    | awk -v search=$1 'NR == 1 || $0 ~ search' \
     | awk 'NR == 1; NR > 1 {print $0 | "sort"}'
 }
 
