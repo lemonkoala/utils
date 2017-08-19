@@ -6,6 +6,14 @@ dockb() {
   fi
 }
 
+dockr() {
+  if [ -z $1 ]; then
+    echo "Please supply the container name / ID"
+  else
+    eval "docker restart $1"
+  fi
+}
+
 dockp() {
   docker ps -a --format "table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}" \
     | awk -v search=$1 'NR == 1 || $0 ~ search' \
@@ -57,7 +65,7 @@ _dock_containers_autocomplete() {
   containers=`docker ps --format '{{.Names}}'`
   COMPREPLY=( $(compgen -W "${containers}" -- $cur) )
 }
-complete -F _dock_containers_autocomplete dockb dockip
+complete -F _dock_containers_autocomplete dockb dockr dockip
 
 dockweb() {
   docker-compose run --rm web "$@"
