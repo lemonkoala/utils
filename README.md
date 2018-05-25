@@ -4,7 +4,16 @@ Various bash scripts to ensure my experience in the terminal remains consistent 
 # installing
 
 * clone this repository in to whatever folder
-* add `source /path/to/whatever-folder/_all.bash` (or just the ones you like) in your `.profile` or `.bash_profile`
+* add `source /path/to/whatever-folder/_all.bash` (or just the ones you like) in your `.bashrc` or `.bash_profile`
+
+For example:
+
+```
+cd ~
+git clone https://github.com/lemonkoala/utils.git
+echo "source ~/utils/_all.bash" > .bashrc
+source .bashrc
+```
 
 # contents
 
