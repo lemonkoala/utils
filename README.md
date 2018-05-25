@@ -11,7 +11,7 @@ For example:
 ```
 cd ~
 git clone https://github.com/lemonkoala/utils.git
-echo "source ~/utils/_all.bash" > .bashrc
+echo "source ~/utils/_all.bash" >> .bashrc
 source .bashrc
 ```
 
