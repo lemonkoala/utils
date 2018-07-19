@@ -7,9 +7,6 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 export EDITOR=/usr/bin/vim
 export PATH="$PATH:$HOME/bin"
 
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 
 parse_git_branch() {
