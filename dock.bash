@@ -60,6 +60,10 @@ dockip() {
   fi
 }
 
+dockn() {
+  docker network ls
+}
+
 _dock_containers_autocomplete() {
   local cur=${COMP_WORDS[COMP_CWORD]}
   containers=`docker ps --format '{{.Names}}'`
